@@ -1,4 +1,4 @@
-/*            Global Variable declaration            */
+/* ----------- Global Variable declaration ----------- */
 //Game space
 var cardContainerEle = document.getElementById("gameCards");
 var cards = [];
@@ -30,18 +30,18 @@ var accuracyEle = document.getElementById("accuracy");
 // Game reset mechanics
 var resetButtonEle = document.getElementById("reset-button");
 
-/*            function calls            */
+/* ----------- function calls ----------- */
 createCards();
 shuffleCards();
 addCards();
 
-/*            Event Listeners            */
+/*----------- Event Listeners -----------*/
 // Event listener for a click on a card
 cardContainerEle.addEventListener("click", handleClick);
 //Event listener to reset the game
 resetButtonEle.addEventListener("click", resetGame);
 
-/*            Functions            */
+/*----------- Functions -----------*/
 // Handles the click on the cards
 function handleClick(event){
   if (event.target.className.indexOf("card-back") === -1) {

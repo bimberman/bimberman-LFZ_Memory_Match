@@ -1,14 +1,7 @@
 body{
   height: 97vh;
   background-image: url(../images/lfz-background.jpg);
-}
-
-.container{
-  width: 100%;
-  max-width: 1500px;
   margin: auto;
-  height: 100%;
-  z-index: 0;
 }
 
 .row{
@@ -48,6 +41,7 @@ header{
   font-size: 2rem;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin: auto;
 }
 
@@ -186,4 +180,89 @@ header{
 
 .hidden {
   display: none;
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    header{
+      font-size: 1.5rem;
+    }
+
+    .stats{
+      font-size: 0.75rem;
+    }
+
+    .card{
+      height: 22.5%;
+    }
+
+    body{
+      height: 50vh;
+      margin-top: 40%;
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    header{
+      font-size: 2rem;
+    }
+
+    .stats{
+      font-size: 1rem;
+      height: 12%;
+    }
+}
+
+/* ----------- iPad 1, 2, Mini and Air ----------- */
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    header{
+      font-size: 3rem;
+    }
+
+    .stats{
+      font-size: 1.25rem;
+    }
+
+    .card{
+      height: 25%;
+    }
+
+    body{
+      height: 50vh;
+      margin-top: 25%;
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: landscape)
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    .stats{
+      font-size: 1.5rem;
+    }
+
+    .card{
+      height: 25%;
+    }
 }
