@@ -1,1 +1,163 @@
+body{
+  height: 97vh;
+  background-image: url(../images/lfz-background.jpg);
+}
 
+.container{
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+  height: 100%;
+}
+
+.row{
+  width: 100%;
+  display: flex;
+  margin-bottom: .5rem;
+}
+
+.header-row{
+  height: 20%;
+  justify-content: center;
+  align-items: center;
+}
+
+header{
+  text-align: center;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.game-row{
+  height: 80%;
+}
+
+.stats-container,
+.cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  margin: auto;
+}
+
+.stats{
+  display: flex;
+  height: 10%;
+  background-color: rgb(135,206,235);
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.card{
+  height: 30%;
+  background-image: url(../images/lfz-card.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: auto;
+  position: relative;
+}
+
+.card-front, .card-back {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+}
+
+/* Generic card back */
+.card-back {
+  background-image: url(../images/lfz-card.jpg)
+}
+
+/* CSS */
+.css-logo {
+  background-image: url(../images/css-logo.png)
+}
+
+/* docker */
+.docker-logo {
+  background-image: url(../images/docker-logo.jpg)
+}
+
+/* gitHub */
+.github-logo {
+  background-image: url(../images/gitHub-logo.png)
+}
+
+/* HTML */
+.html-logo {
+  background-image: url(../images/html-logo.png)
+}
+/* JS */
+.js-logo {
+  background-image: url(../images/js-logo.png)
+}
+
+/* MySQL */
+.mysql-logo {
+  background-image: url(../images/mysql-logo.jpg)
+}
+
+/* node */
+.node-logo {
+  background-image: url(../images/node-logo.png)
+}
+
+/* PHP */
+.php-logo {
+  background-image: url(../images/php-logo.jpeg)
+}
+
+/* React */
+.react-logo {
+  background-image: url(../images/react-logo.png)
+}
+
+/* Based on 12 col's minus a little (8.33% would be exact 12 col) */
+.col-1 {
+  width: 8%;
+}
+.col-2 {
+  width: 16%;
+}
+.col-3 {
+  width: 24%;
+}
+
+.col-4 {
+  width: 32%;
+}
+.col-5 {
+  width: 40%;
+}
+.col-6 {
+  width: 48%;
+}
+
+.col-7 {
+  width: 56%;
+}
+.col-8 {
+  width: 64%;
+}
+.col-9 {
+  width: 72%;
+}
+
+.col-10 {
+  width: 80%;
+}
+.col-11 {
+  width: 88%;
+}
+.col-12 {
+  width: 96%;
+}
+
+.hidden {
+  display: none;
+}
