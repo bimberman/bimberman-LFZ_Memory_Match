@@ -1,6 +1,6 @@
 body{
   height: 97vh;
-  background-image: url("../images/lfz-background.jpg");
+  background-image: url(../images/lfz-background.jpg);
 }
 
 .container{
@@ -52,13 +52,72 @@ header{
 
 .card{
   height: 30%;
-  background-image: url("../images/lfz-card.jpg");
+  background-image: url(../images/lfz-card.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   margin: auto;
+  position: relative;
 }
 
+.card-front, .card-back {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+}
 
+/* Generic card back */
+.card-back {
+  background-image: url(../images/lfz-card.jpg)
+}
+
+/* CSS */
+.css-logo {
+  background-image: url(../images/css-logo.png)
+}
+
+/* docker */
+.docker-logo {
+  background-image: url(../images/docker-logo.jpg)
+}
+
+/* gitHub */
+.github-logo {
+  background-image: url(../images/gitHub-logo.png)
+}
+
+/* HTML */
+.html-logo {
+  background-image: url(../images/html-logo.png)
+}
+/* JS */
+.js-logo {
+  background-image: url(../images/js-logo.png)
+}
+
+/* MySQL */
+.mysql-logo {
+  background-image: url(../images/mysql-logo.jpg)
+}
+
+/* node */
+.node-logo {
+  background-image: url(../images/node-logo.png)
+}
+
+/* PHP */
+.php-logo {
+  background-image: url(../images/php-logo.jpeg)
+}
+
+/* React */
+.react-logo {
+  background-image: url(../images/react-logo.png)
+}
+
+/* Based on 12 col's minus a little (8.33% would be exact 12 col) */
 .col-1 {
   width: 8%;
 }
@@ -97,4 +156,8 @@ header{
 }
 .col-12 {
   width: 96%;
+}
+
+.hidden {
+  display: none;
 }
