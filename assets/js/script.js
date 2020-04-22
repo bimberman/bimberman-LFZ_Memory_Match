@@ -4,6 +4,9 @@ var firstCardClicked;
 var secondCardClicked;
 var firstCardClasses;
 var secondCardClasses;
+var maxMatches = 9;
+var matches = 0;
+var winModal = document.getElementById("win-modal");
 
 // Event listener for a click on a card
 cardContainer.addEventListener("click", handleClick);
@@ -28,6 +31,10 @@ function handleClick(event){
       cardContainer.addEventListener("click", handleClick);
       firstCardClicked = null;
       secondCardClicked = null;
+      matches++;
+      if(matches===maxMatches){
+        winModal.classList.remove("hidden");
+      }
     } else {
       setTimeout(unhide, 1500);
     }
