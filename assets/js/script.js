@@ -1,22 +1,32 @@
 // Global Variable declaration
+//Game space container
 var cardContainerEle = document.getElementById("gameCards");
+
+// Card matching mechanics
 var firstCardClicked;
 var secondCardClicked;
 var firstCardClasses;
 var secondCardClasses;
 var maxMatches = 9;
 var matches = 0;
+
 // The modal which will inform the user they have won
 var winModalEle = document.getElementById("win-modal");
 var attempts = 0;
 var gamesPlayed = 0;
+
 // Stats column elements
 var gamesPlayedEle = document.getElementById("games-played");
 var attemptsEle = document.getElementById("attempts");
 var accuracyEle = document.getElementById("accuracy");
 
+// Game reset mechanics
+var resetButtonEle = document.getElementById("reset-button");
+
 // Event listener for a click on a card
 cardContainerEle.addEventListener("click", handleClick);
+//Event listener to reset the game
+resetButtonEle.addEventListener("click", resetGame);
 
 // Handles the click on the cards
 function handleClick(event){
@@ -67,5 +77,24 @@ function displayStats(){
 }
 
 function calculateAccuracy(matches, attempts){
+  if(!attempts){
+    return "0%";
+  }
   return `${Math.floor((matches / attempts) * 100)}%`;
+}
+
+function resetGame(){
+  gamesPlayed++;
+  matches = 0;
+  attempts = 0;
+  displayStats();
+  resetCards();
+  winModalEle.classList.add("hidden");
+}
+
+function resetCards(){
+  let cardBacks = cardContainerEle.getElementsByClassName("card-back");
+  for (let cardBacksIndex=0; cardBacksIndex < cardBacks.length; cardBacksIndex++){
+    cardBacks[cardBacksIndex].classList.remove("hidden");
+  }
 }
