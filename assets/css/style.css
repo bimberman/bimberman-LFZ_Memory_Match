@@ -8,6 +8,7 @@ body{
   max-width: 1500px;
   margin: auto;
   height: 100%;
+  z-index: 0;
 }
 
 .row{
@@ -82,6 +83,7 @@ header{
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+  z-index: 1;
 }
 
 #reset-button{

@@ -4,6 +4,10 @@ var cardContainerEle = document.getElementById("gameCards");
 var cards = [];
 var cardsFront = [];
 var cardsBack = [];
+var classNames = [  "css-logo" ,"docker-logo" ,"github-logo" ,
+                    "html-logo" ,"js-logo" ,"mysql-logo" ,
+                    "node-logo" ,"php-logo", "react-logo"
+                  ]
 
 // Card matching mechanics
 var firstCardClicked;
@@ -28,6 +32,7 @@ var resetButtonEle = document.getElementById("reset-button");
 
 /*            function calls            */
 createCards();
+shuffleCards();
 addCards();
 
 /*            Event Listeners            */
@@ -98,6 +103,9 @@ function resetGame(){
   attempts = 0;
   displayStats();
   resetCards();
+  removeCards();
+  shuffleCards();
+  addCards();
   winModalEle.classList.add("hidden");
 }
 
@@ -113,13 +121,6 @@ function shuffleCards(){
   let tempValue;
   let randomIndex;
 
-  while (cardContainerEle.firstElementChild) {
-    if (cardContainerEle.lastElementChild.id==="win-modal"){
-      break;
-    }
-      cardContainerEle.removeChild(cardContainerEle.lastChild);
-  }
-
   while(0!==currentIndex){
     randomIndex = Math.floor(Math.random()*currentIndex);
     currentIndex--;
@@ -128,7 +129,15 @@ function shuffleCards(){
     cards[currentIndex] = cards[randomIndex];
     cards[randomIndex] = tempValue;
   }
-  addCards();
+}
+
+function removeCards(){
+  while (cardContainerEle.firstElementChild) {
+    if (cardContainerEle.lastElementChild.id === "win-modal") {
+      break;
+    }
+    cardContainerEle.removeChild(cardContainerEle.lastChild);
+  }
 }
 
 function addCards(){
@@ -157,21 +166,8 @@ function createCards(){
     cards[cardIndex].classList.add("card", "col-2");
     cards[cardIndex].setAttribute("id", `card${cardIndex}`)
 
-    cardsFront[cardIndex].classList.add("card-front");
+    cardsFront[cardIndex].classList.add("card-front", `${classNames[cardIndex%9]}`);
     cardsFront[cardIndex].setAttribute("id", `card-front${cardIndex}`);
-
-    switch(cardIndex){
-      case 0: case 9: cardsFront[cardIndex].classList.add("css-logo"); break;
-      case 1: case 10: cardsFront[cardIndex].classList.add("docker-logo"); break;
-      case 2: case 11: cardsFront[cardIndex].classList.add("github-logo"); break;
-      case 3: case 12: cardsFront[cardIndex].classList.add("html-logo"); break;
-      case 4: case 13: cardsFront[cardIndex].classList.add("js-logo"); break;
-      case 5: case 14: cardsFront[cardIndex].classList.add("mysql-logo"); break;
-      case 6: case 15: cardsFront[cardIndex].classList.add("node-logo"); break;
-      case 7: case 16: cardsFront[cardIndex].classList.add("php-logo"); break;
-      case 8: case 17: cardsFront[cardIndex].classList.add("react-logo"); break;
-      default: break;
-    }
 
     cardsBack[cardIndex].classList.add("card-back");
     cardsBack[cardIndex].setAttribute("id", `card-back${cardIndex}`);
