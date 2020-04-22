@@ -1,15 +1,22 @@
 // Global Variable declaration
-var cardContainer = document.getElementById("gameCards");
+var cardContainerEle = document.getElementById("gameCards");
 var firstCardClicked;
 var secondCardClicked;
 var firstCardClasses;
 var secondCardClasses;
 var maxMatches = 9;
 var matches = 0;
-var winModal = document.getElementById("win-modal");
+// The modal which will inform the user they have won
+var winModalEle = document.getElementById("win-modal");
+var attempts = 0;
+var gamesPlayed = 0;
+// Stats column elements
+var gamesPlayedEle = document.getElementById("games-played");
+var attemptsEle = document.getElementById("attempts");
+var accuracyEle = document.getElementById("accuracy");
 
 // Event listener for a click on a card
-cardContainer.addEventListener("click", handleClick);
+cardContainerEle.addEventListener("click", handleClick);
 
 // Handles the click on the cards
 function handleClick(event){
@@ -25,15 +32,17 @@ function handleClick(event){
   } else {
     secondCardClicked = event.target;
     secondCardClasses = secondCardClicked.previousElementSibling.classList.value;
-    cardContainer.removeEventListener("click", handleClick);
+    cardContainerEle.removeEventListener("click", handleClick);
 
     if (firstCardClasses === secondCardClasses) {
-      cardContainer.addEventListener("click", handleClick);
+      cardContainerEle.addEventListener("click", handleClick);
       firstCardClicked = null;
       secondCardClicked = null;
       matches++;
+      attempts++;
+      displayStats();
       if(matches===maxMatches){
-        winModal.classList.remove("hidden");
+        winModalEle.classList.remove("hidden");
       }
     } else {
       setTimeout(unhide, 1500);
@@ -44,7 +53,19 @@ function handleClick(event){
 function unhide(){
   firstCardClicked.classList.remove("hidden");
   secondCardClicked.classList.remove("hidden");
-  cardContainer.addEventListener("click", handleClick);
+  cardContainerEle.addEventListener("click", handleClick);
   firstCardClicked = null;
   secondCardClicked = null;
+  attempts++;
+  displayStats();
+}
+
+function displayStats(){
+  gamesPlayedEle.textContent = gamesPlayed;
+  attemptsEle.textContent = attempts;
+  accuracyEle.textContent = calculateAccuracy(matches, attempts);
+}
+
+function calculateAccuracy(matches, attempts){
+  return `${Math.floor((matches / attempts) * 100)}%`;
 }
