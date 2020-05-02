@@ -24,3 +24,6 @@ Below is a list of features that can be found on this memory match project:
 * I learned how to translate these manageable tasks into logical steps
 * I learned how to turn these logical steps into functioning code
 
+## Sample Playthrough
+
+![Playthrough](https://github.com/bimberman/bimberman-LFZ_Memory_Match/blob/master/assets/images/memory_match.gif)
